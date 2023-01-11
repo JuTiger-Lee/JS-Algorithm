@@ -1,0 +1,45 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>홀수</title>
+    </head>
+    <body>
+        <script>
+            function solution(arr){
+                let answer=[];
+                let totalOddNumber = 0;
+                let smallOddNumber = Number.MAX_SAFE_INTEGER;
+
+                // 풀이
+                for(let i = 0; i < arr.length; i+=1) {
+                    if(arr[i] % 2 !== 0) {
+                        totalOddNumber += arr[i];  
+
+                        if(smallOddNumber > arr[i]) {
+                            smallOddNumber = arr[i];
+                        }
+                    }
+                }
+
+                let sum = 0;
+                let min = Number.MAX_SAFE_INTEGER;
+                let answer2 = [];
+                // 강의 풀이
+                for(let x of arr) {
+                    if(x % 2 === 1) {
+                        sum += x;
+                        if(x < min) min = x;
+                    }
+                }
+
+                answer.push(totalOddNumber, smallOddNumber);
+                answer2.push(sum, min);
+
+                return answer;
+            }
+            
+            arr=[12, 77, 38, 41, 53, 92, 85];
+            console.log(solution(arr));
+        </script>
+    </body>
+</html>
