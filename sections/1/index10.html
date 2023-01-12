@@ -1,0 +1,27 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>문자찾기</title>
+    </head>
+    <body>
+        <script>
+            function solution(s, t){
+                let answer=0;
+                let answer2=0;
+
+                // 풀이
+                for(let i = 0; i < s.length; i+=1) {
+                    if(s[i] === t) answer+=1;
+                }
+
+                // 강의 풀이
+                answer2 = s.split(t).length - 1;
+
+                return answer;
+            }
+            
+            let str="COMPUTERPROGRAMMING";
+            console.log(solution(str, 'R'));
+        </script>
+    </body>
+</html>
