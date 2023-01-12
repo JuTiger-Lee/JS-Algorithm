@@ -1,0 +1,25 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>대문자찾기</title>
+</head>
+
+<body>
+    <script>
+        function solution(s) {
+            let answer = 0;
+
+            for (let str of s) {
+                if (str === str.toUpperCase()) answer += 1;
+            }
+
+            return answer;
+        }
+
+        let str = "KoreaTimeGood";
+        console.log(solution(str));
+    </script>
+</body>
+
+</html>
