@@ -10,9 +10,7 @@
         function solution(s) {
             let answer;
 
-            answer = s.filter((v, i) =>
-                t.indexOf(v) === i
-            );
+            answer = s.filter((v, i) => s.indexOf(v) === i);
 
             return answer;
         }
