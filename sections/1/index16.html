@@ -7,6 +7,7 @@
         <script>
             function solution(s){  
                 let answer="";
+                let answer2="";
                 const strs = [];
 
                 // 풀이
@@ -17,7 +18,28 @@
                     }
                 }
 
-                return answer;
+                // 강의 풀이 
+                for(let i = 0; i < s.length; i++) {
+                    /*
+                        같은 문자가 있을 경우에는 indexOf는 
+                        똑같은 인덱스 번호가 나옴
+                        s[i] i s.indexOf(s[i])
+                        k    0      0
+                        s    1      1
+                        e    2      2 
+                        k    3      0
+                        k    4      0
+                        s    5      1
+                        e    6      2
+                        t    7      7
+                    */
+                    if(s.indexOf(s[i]) === i) answer2 += s[i];
+                }
+
+                return {
+                    answer,
+                    answer2
+                };
             }
             console.log(solution("ksekkset"));
         </script>
