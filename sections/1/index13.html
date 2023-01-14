@@ -1,0 +1,25 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>대소문자 변환</title>
+    </head>
+    <body>
+        <script>
+            function solution(s){  
+                let answer="";
+
+                for(let x of s) {
+                    if(x === x.toLowerCase()) {
+                        answer += x.toUpperCase();
+                    } else {
+                        answer += x.toLowerCase();
+                    }
+                }
+
+                return answer;
+            }
+
+            console.log(solution("StuDY"));
+        </script>
+    </body>
+</html>
