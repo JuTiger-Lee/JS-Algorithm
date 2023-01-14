@@ -1,0 +1,25 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>증복문자제거</title>
+    </head>
+    <body>
+        <script>
+            function solution(s){  
+                let answer="";
+                const strs = [];
+
+                // 풀이
+                for(let x of s) {
+                    if(!strs.includes(x)) {
+                        strs.push(x);
+                        answer += x;
+                    }
+                }
+
+                return answer;
+            }
+            console.log(solution("ksekkset"));
+        </script>
+    </body>
+</html>
