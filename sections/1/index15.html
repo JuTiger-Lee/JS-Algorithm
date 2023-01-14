@@ -1,0 +1,35 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>가운데 문자 출력</title>
+    </head>
+    <body>
+        <script>
+            function solution(s){  
+                let answer;
+                const middle = Math.floor(s.length / 2)
+
+                // 풀이
+                if(s.length % 2 !== 0) {
+                    answer = s[middle];
+                } else {    
+                    answer = s[middle - 1];
+                    answer += s[middle];
+                }
+
+                // 강의풀이
+                if(s.length % 2 === 1) {
+                    answer = s.substring(middle, middle + 1);
+                } else {
+                    answer = s.substring(middle - 1, middle + 1);
+                }
+
+                return answer;
+            }
+            console.log(solution("study")); 
+            console.log(solution("studyyy"));
+            console.log(solution("good"));
+            console.log(solution("gooddd"));
+        </script>
+    </body>
+</html>
