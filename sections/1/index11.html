@@ -11,6 +11,13 @@
             let answer = 0;
 
             for (let str of s) {
+                /*
+                대문자: 65~90 A~Z
+                소문자: 97~122 a~z
+                */
+                // let num = x.charCodeAt();  // ASCII 코드를 찍어줌
+                // if(num >= 65 && num <= 90) answer += 1;
+
                 if (str === str.toUpperCase()) answer += 1;
             }
 
