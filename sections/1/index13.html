@@ -7,12 +7,33 @@
         <script>
             function solution(s){  
                 let answer="";
+                let answer2="";
+
+                // 풀이
+                // for(let x of s) {
+                //     if(x === x.toLowerCase()) {
+                //         answer += x.toUpperCase();
+                //     } else {
+                //         answer += x.toLowerCase();
+                //     }
+                // }
 
                 for(let x of s) {
-                    if(x === x.toLowerCase()) {
-                        answer += x.toUpperCase();
+                    let num = x.charCodeAt();
+
+                    if(num >= 97 && num <= 122) {
+                        answer += String.fromCharCode(num-32)
                     } else {
-                        answer += x.toLowerCase();
+                        answer += String.fromCharCode(num+32);
+                    }
+                }
+
+                // 강의 풀이
+                for(let x of s) {
+                    if(x===x.toUpperCase()) {
+                        answer2 += x.toLowerCase();
+                    } else {
+                        answer2 += x.toUpperCase();
                     }
                 }
 
