@@ -1,0 +1,32 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>등수구하기</title>
+    </head>
+    <body>
+        <script>
+            function solution(arr){  
+                let answer= '';
+                let num = 1;    
+
+                for(let i = 0; i < arr.length; i+=1) {
+                    for(let j = 0; j < arr.length; j+=1) {
+                        if(arr[i] < arr[j]) {
+                            num += 1;
+                        }
+
+                        if(arr.length - 1 === j) {
+                            answer += num + ' ';
+                            num = 1;
+                        }
+                    }
+                }
+
+                return answer;
+            }
+
+            let arr=[87, 92, 92, 100, 76];
+            console.log(solution(arr));
+        </script>
+    </body>
+</html>
