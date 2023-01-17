@@ -9,6 +9,11 @@
                 let answer= '';
                 let num = 1;    
 
+                let n = arr.length;
+                // 길이가 5인 배열을 1로 초기화해서 생성
+                let answer2 = Array.from({length: n}, ()=>1);
+
+                // 풀이
                 for(let i = 0; i < arr.length; i+=1) {
                     for(let j = 0; j < arr.length; j+=1) {
                         if(arr[i] < arr[j]) {
@@ -19,6 +24,12 @@
                             answer += num + ' ';
                             num = 1;
                         }
+                    }
+                }
+
+                for(let i = 0; i < n; i++) {
+                    for(j = 0; j < n; j++) {
+                        if(arr[j]>arr[i]) answer[i]++;
                     }
                 }
 
