@@ -9,6 +9,11 @@ import { DoublyLinkedList } from "./DoublyLinkedList.mjs";
  * removeLast - list tail에 데이터제거
  * isEmpty - 리스트가 비었는지 체크
  *
+ * ::addFirst와 removeFirst를 이용하면 스택이된다.
+ * ::addLast와 removeLast를 이용하면 스택이된다.
+ *
+ * ::addFirst와 removeFirst를 이용하면 큐가된다.
+ * ::addLast와 removeFirst를 이용하면 큐가된다.
  */
 
 class Deque {
