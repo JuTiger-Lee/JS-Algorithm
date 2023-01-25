@@ -15,7 +15,7 @@ class HashSet {
 
   add(data) {
     // 증복 방지를 위해 데이터가 있는지 체크
-    if (this.hashTable.get(data) == null) {
+    if (this.hashTable.get(data) === null) {
       // value 는 안쓰기에 -1을 value로
       this.hashTable.set(data, -1);
     }
