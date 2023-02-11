@@ -1,22 +1,112 @@
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <title>출력결과</title>
-    </head>
-    <body>
-        <script>
-            function solution(arr){  
-                let answer='';
 
-                return answer;
+<head>
+    <meta charset="UTF-8">
+    <title>격자판 최대 합</title>
+</head>
+
+<body>
+    <script>
+        // 강의풀이
+        function solution2(arr) {
+            let answer = Number.MIN_SAFE_INTEGER;
+            let n = arr.length;
+            let sum1=sum2=0;
+
+            for(let i = 0; i < n; i++) {
+                sum1=sum2=0;
+                for(let j = 0; j < n; j++) {
+                    sum1+=arr[i][j];
+                    sum2+=arr[j][i];
+                }
+
+                answer = Math.max(answer, sum1, sum2);
             }
 
-            let arr=[[10, 13, 10, 12, 15], 
-                     [12, 39, 30, 23, 11],
-                     [11, 25, 50, 53, 15],
-                     [19, 27, 29, 37, 27],
-                     [19, 13, 30, 13, 19]];
-            console.log(solution(arr));
-        </script>
-    </body>
+            sum1=sum2=0;
+
+            for(let i = 0; i < n; i++) {
+                sum1+=arr[i][i];
+                sum2+=arr[i][n-i-1];
+            }
+
+            answer = Math.max(answer, sum1, sum2);
+
+            return answer;
+        }
+
+        // 풀이
+        function solution(arr) {
+            let answer = 0;
+            // 세로줄
+            let verticalLine = 0;
+            let compareVerticalLine = 0;
+
+            // 가로줄
+            let horizontalLine = 0;
+            let compareHorizontalLine = 0;
+
+            // 대각선
+            let diagonal = 0;
+            // 역 대각선
+            let reverseDiagonal = 0;
+
+            for (let i = 0; i < arr.length; i += 1) {
+                for (let j = 0; j < arr[i].length; j += 1) {
+                    // 세로줄
+                    if (i === 0) verticalLine += arr[j][i];
+                    else compareVerticalLine += arr[j][i];
+
+                    // 가로줄
+                    if (i === 0) horizontalLine += arr[i][j];
+                    else compareHorizontalLine += arr[i][j];
+
+                    // 대각선 줄
+                    if (i === j) {
+                        diagonal += arr[i][j]
+                    }
+
+                    // 역 대각선 줄
+                    if (j === (arr[i].length - i) - 1) {
+                        reverseDiagonal += arr[i][j]
+                    }
+                }
+
+                if (compareVerticalLine > verticalLine) {
+                    verticalLine = 0;
+                    verticalLine = compareVerticalLine;
+                    compareVerticalLine = 0;
+                } else {
+                    compareVerticalLine = 0;
+                }
+
+                if (compareHorizontalLine > horizontalLine) {
+                    horizontalLine = 0;
+                    horizontalLine = compareHorizontalLine;
+                    compareHorizontalLine = 0;
+                } else {
+                    compareHorizontalLine = 0;
+                }
+            }
+
+            answer = Math.max(...[
+                verticalLine,
+                horizontalLine,
+                diagonal,
+                reverseDiagonal
+            ]);
+
+            return answer;
+        }
+
+        let arr = [[10, 13, 10, 12, 15],
+        [12, 39, 30, 23, 11],
+        [11, 25, 50, 53, 15],
+        [19, 27, 29, 37, 27],
+        [19, 13, 30, 13, 19]];
+        console.log(solution(arr));
+        console.log(solution2(arr));
+    </script>
+</body>
+
 </html>
